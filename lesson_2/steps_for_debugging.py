@@ -23,7 +23,8 @@ def collect_grades(student_collection):
             grades.append(grade)
     return grades
 
-student_grades = collect_grades(students)
-print(average_grade(student_grades))
+test_grades = collect_grades(students)
+print(test_grades)
+print(average_grade(test_grades))
 # TypeError: unsupported operand type(s) for +: 'int'
 # and 'NoneType'
