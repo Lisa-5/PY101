@@ -137,18 +137,18 @@ IF index(substring) == -1
 def find_nth(haystack: str, needle: str, n: int) -> int:
     start = haystack.find(needle)
     
-    while start >= 0 and n > 1:
-        print(start+len(needle))
-        start = haystack.find(needle, start+len(needle))
-        n -= 1
-        print(f'=> {start}, {n}')
-
     if start == -1:
         return None
+    
+    while start >= 0 and n > 1:
+        start = haystack.find(needle, start+len(needle))
+        n -= 1
     
     return start
 
 print(find_nth('axbxcdxex', 'x', 3))
+print(find_nth('pseudocode', 'x', 3))
+
 
 
 '''
