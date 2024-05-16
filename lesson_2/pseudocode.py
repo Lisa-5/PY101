@@ -114,13 +114,23 @@ def every_other(lst):
 a function that determines the index of the 3rd occurrence of a given character in a string. For instance, if the given character is 'x' and the string is 'axbxcdxex', the function should return 6 (the index of the 3rd 'x'). If the given character does not occur at least 3 times, return None.
 
 find first occurance of given character
-find second occurance of given character
+create a slice starting one character after the first found character
+find the second character
+create a slice starting one character after the second found character
 find third occurance of given character
 return the index of the third occurance
 if there is no third occurance return None.
 
 START
+SET iterator = n
 
+WHILE index(substring) >= 0 AND n > 1
+    find the index of the first occurance of substring
+    create a slice starting at that index plus the length of the substring, index + len(substring)
+    decrement the iterator by 1, n -= 1
+
+IF index(substring) == -1
+    return NONE
 
 '''
 
@@ -128,8 +138,10 @@ def find_nth(haystack: str, needle: str, n: int) -> int:
     start = haystack.find(needle)
     
     while start >= 0 and n > 1:
+        print(start+len(needle))
         start = haystack.find(needle, start+len(needle))
         n -= 1
+        print(f'=> {start}, {n}')
 
     if start == -1:
         return None
