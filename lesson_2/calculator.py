@@ -1,8 +1,10 @@
+import pdb
 # Ask the user for the first number.
 # Ask the user for the second number.
 # Ask the user for an operation to perform.
 # Perform the operation on the two numbers.
 # Print the result to the terminal.
+# Ask the user if they want do another calculation
 
 def prompt(message):
     print(f'==> {message}')
@@ -15,38 +17,54 @@ def invalid_number(number_str):
 
     return False
 
-prompt('Welcome to Calculator!')
+def again():
+    while True:
+        prompt('Perform another calculation? (y/n) ')
+        entry = input().lower()
 
-prompt("What's the first number?")
-number1 = input()
+        if entry != 'y':
+            break
+    
+        calculate()
 
-while invalid_number(number1):
-    prompt("Hmmm...  that doesn't look like a valid number.")
+def calculate():
+    prompt("What's the first number?")
     number1 = input()
 
-prompt("What's the second number?")
-number2 = input()
+    while invalid_number(number1):
+        prompt("Hmmm...  that doesn't look like a valid number.")
+        number1 = input()
 
-while invalid_number(number2):
-    prompt("Hmmm...  that doesn't look like a valid number.")
+    prompt("What's the second number?")
     number2 = input()
 
-prompt('What opertion would you like to perform?\n'
-      '1) Add  2) Subtract  3) Multiply  4) Divide')
-operation = input()
+    while invalid_number(number2):
+        prompt("Hmmm...  that doesn't look like a valid number.")
+        number2 = input()
 
-while operation not in ['1', '2', '3', '4']:
-    prompt('You must choose 1, 2, 3, or 4')
+    prompt('What opertion would you like to perform?\n'
+            '1) Add  2) Subtract  3) Multiply  4) Divide')
     operation = input()
 
-match operation:
-    case '1':    # '1' represents addition
-        output = int( number1) + int(number2)
-    case '2':  # '2' represents subtraction
-        output = int(number1) - int(number2)
-    case '3':  # '3' represents multiplication
-        output = int(number1) * int(number2)
-    case '4':  # '4' represents divition
-        output = int(number1) / int(number2)
+    while operation not in ['1', '2', '3', '4']:
+        prompt('You must choose 1, 2, 3, or 4')
+        operation = input()
 
-prompt(f'The result is: {output}')
+    match operation:
+        case '1':    # '1' represents addition
+            output = int( number1) + int(number2)
+        case '2':  # '2' represents subtraction
+            output = int(number1) - int(number2)
+        case '3':  # '3' represents multiplication
+            output = int(number1) * int(number2)
+        case '4':  # '4' represents divition
+            output = int(number1) / int(number2)
+
+    prompt(f'The result is: {output}')
+
+
+# START program       
+
+prompt('Welcome to Calculator!')
+calculate()
+again()
