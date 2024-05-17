@@ -1,10 +1,11 @@
-import pdb
 # Ask the user for the first number.
 # Ask the user for the second number.
 # Ask the user for an operation to perform.
 # Perform the operation on the two numbers.
 # Print the result to the terminal.
 # Ask the user if they want do another calculation
+# If 'y' repeat calculator program and prompt to do it again
+# When 'n' exit the program 
 
 def prompt(message):
     print(f'==> {message}')
@@ -16,16 +17,6 @@ def invalid_number(number_str):
         return True
 
     return False
-
-def again():
-    while True:
-        prompt('Perform another calculation? (y/n) ')
-        entry = input().lower()
-
-        if entry != 'y':
-            break
-    
-        calculate()
 
 def calculate():
     prompt("What's the first number?")
@@ -57,13 +48,23 @@ def calculate():
             output = int(number1) - int(number2)
         case '3':  # '3' represents multiplication
             output = int(number1) * int(number2)
-        case '4':  # '4' represents divition
+        case '4':  # '4' represents division
             output = int(number1) / int(number2)
 
     prompt(f'The result is: {output}')
 
+def again():
+    while True:
+        prompt('Perform another calculation? (y/n) ')
+        entry = input().lower()
 
-# START program       
+        if entry != 'y':
+            break
+    
+        calculate()
+
+
+# ----- START Program  --------
 
 prompt('Welcome to Calculator!')
 calculate()
