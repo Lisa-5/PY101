@@ -56,9 +56,9 @@ def calculate():
 def again():
     while True:
         prompt('Perform another calculation? (y/n) ')
-        entry = input().lower()
+        entry = input()
 
-        if entry != 'y':
+        if entry[0] and entry[0].lower() != 'y':
             break
     
         calculate()
