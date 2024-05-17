@@ -5,7 +5,7 @@
 # Print the result to the terminal.
 # Ask the user if they want do another calculation
 # If 'y' repeat calculator program and prompt to do it again
-# When 'n' exit the program 
+# When 'n' exit the program
 
 def prompt(message):
     print(f'==> {message}')
@@ -60,11 +60,11 @@ def again():
 
         if entry[0] and entry[0].lower() != 'y':
             break
-    
+
         calculate()
 
 
-# ----- START Program  --------
+# ------- START Program -------
 
 prompt('Welcome to Calculator!')
 calculate()
