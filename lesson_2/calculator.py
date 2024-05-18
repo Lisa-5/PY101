@@ -1,3 +1,11 @@
+import json
+
+# Open the JSON file for reading
+with open('calculator_messages.json', 'r') as file:
+    data = json.load(file)
+
+# Now 'data' contains the contents of the JSON file as a Python dictionary or list
+
 # Ask the user for the first number.
 # Ask the user for the second number.
 # Ask the user for an operation to perform.
@@ -19,26 +27,25 @@ def invalid_number(number_str):
     return False
 
 def calculate():
-    prompt("What's the first number?")
+    prompt(data['first_number'])
     number1 = input()
 
     while invalid_number(number1):
-        prompt("Hmmm...  that doesn't look like a valid number.")
+        prompt(data['validate_number'])
         number1 = input()
 
-    prompt("What's the second number?")
+    prompt(data['second_number'])
     number2 = input()
 
     while invalid_number(number2):
-        prompt("Hmmm...  that doesn't look like a valid number.")
+        prompt(data['validate_number'])
         number2 = input()
 
-    prompt('What opertion would you like to perform?\n'
-            '1) Add  2) Subtract  3) Multiply  4) Divide')
+    prompt(data['operation'])
     operation = input()
 
     while operation not in ['1', '2', '3', '4']:
-        prompt('You must choose 1, 2, 3, or 4')
+        prompt(data['validate_operation'])
         operation = input()
 
     match operation:
@@ -51,11 +58,11 @@ def calculate():
         case '4':  # '4' represents division
             output = int(number1) / int(number2)
 
-    prompt(f'The result is: {output}')
+    prompt(data['result'].format(output))
 
 def again():
     while True:
-        prompt('Perform another calculation? (y/n) ')
+        prompt(data['new_calculation'])
         entry = input()
 
         if entry[0] and entry[0].lower() != 'y':
@@ -66,6 +73,6 @@ def again():
 
 # ------- START Program -------
 
-prompt('Welcome to Calculator!')
+prompt(data['welcome'])
 calculate()
 again()
