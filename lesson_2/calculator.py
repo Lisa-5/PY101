@@ -64,7 +64,10 @@ def again():
     while True:
         prompt(data['new_calculation'])
         entry = input()
-
+        
+        if not entry:
+            break
+        
         if entry[0] and entry[0].lower() != 'y':
             break
 
