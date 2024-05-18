@@ -4,8 +4,6 @@ import json
 with open('calculator_messages.json', 'r') as file:
     data = json.load(file)
 
-# Now 'data' contains the contents of the JSON file as a Python dictionary or list
-
 # Ask the user for the first number.
 # Ask the user for the second number.
 # Ask the user for an operation to perform.
@@ -64,10 +62,10 @@ def again():
     while True:
         prompt(data['new_calculation'])
         entry = input()
-        
+
         if not entry:
             break
-        
+
         if entry[0] and entry[0].lower() != 'y':
             break
 
