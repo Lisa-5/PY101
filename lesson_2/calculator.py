@@ -24,8 +24,8 @@ def invalid_number(number_str):
 
     return False
 
-def get_number():
-    prompt(data['first_number'])
+def get_number(message):
+    prompt(message)
     number = input()
 
     while invalid_number(number):
@@ -34,34 +34,48 @@ def get_number():
 
     return number
 
-def run_calculator():
-    number1 = get_number()
-    number2 = get_number()
-    # prompt(data['second_number'])
-    # number2 = input()
+def get_operator():
+    prompt(data['get_operator'])
+    operator = input()
 
-    # while invalid_number(number2):
-    #     prompt(data['validate_number'])
-    #     number2 = input()
+    while operator not in ['1', '2', '3', '4']:
+        prompt(data['validate_operator'])
+        operator = input()
 
-    prompt(data['get_operation'])
-    operation = input()
+    return operator
 
-    while operation not in ['1', '2', '3', '4']:
-        prompt(data['validate_operation'])
-        operation = input()
-
+def perform_calculation(operation, num1, num2):
     match operation:
         case '1':    # '1' represents addition
-            output = float(number1) + float(number2)
+            output = float(num1) + float(num2)
         case '2':  # '2' represents subtraction
-            output = float(number1) - float(number2)
+            output = float(num1) - float(num2)
         case '3':  # '3' represents multiplication
-            output = float(number1) * float(number2)
+            output = float(num1) * float(num2)
         case '4':  # '4' represents division
-            output = float(number1) / float(number2)
+            output = float(num1) / float(num2)
 
+    return output
+
+def display_calculation_result(operation, num1, num2, result):
     prompt(data['result'].format(output))
+
+def run_calculator():
+    # get the first number
+    number1 = get_number(data['get_first_number'])
+
+    #get the second number
+    number2 = get_number(data['get_second_number'])
+
+    # get the operator
+    operator = get_operator()
+
+    # peform the calculation
+    output = perform_calculation(operator, number1, number2)
+
+    # display the result to the user
+    # prompt(data['result'].format(output))
+    display_calculation_result(operator, number1, number2, output)
 
 def run_calculator_again():
     while True:
