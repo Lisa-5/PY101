@@ -1,17 +1,17 @@
 import json
 
-# Open the JSON file for reading
-with open('calculator_messages.json', 'r') as file:
-    data = json.load(file)
-
 # Ask the user for the first number.
 # Ask the user for the second number.
 # Ask the user for an operation to perform.
 # Perform the operation on the two numbers.
 # Print the result to the terminal.
 # Ask the user if they want do another calculation
-# If 'y' repeat calculator program and prompt to do it again
+# If 'y' repeat calculator program
 # When 'n' exit the program
+
+# Open the JSON file for reading
+with open('calculator_messages.json', 'r') as file:
+    data = json.load(file)
 
 def prompt(message):
     print(f'==> {message}')
@@ -24,22 +24,27 @@ def invalid_number(number_str):
 
     return False
 
-def calculate():
+def get_number():
     prompt(data['first_number'])
-    number1 = input()
+    number = input()
 
-    while invalid_number(number1):
+    while invalid_number(number):
         prompt(data['validate_number'])
-        number1 = input()
+        number = input()
 
-    prompt(data['second_number'])
-    number2 = input()
+    return number
 
-    while invalid_number(number2):
-        prompt(data['validate_number'])
-        number2 = input()
+def run_calculator():
+    number1 = get_number()
+    number2 = get_number()
+    # prompt(data['second_number'])
+    # number2 = input()
 
-    prompt(data['operation'])
+    # while invalid_number(number2):
+    #     prompt(data['validate_number'])
+    #     number2 = input()
+
+    prompt(data['get_operation'])
     operation = input()
 
     while operation not in ['1', '2', '3', '4']:
@@ -48,7 +53,7 @@ def calculate():
 
     match operation:
         case '1':    # '1' represents addition
-            output = float( number1) + float(number2)
+            output = float(number1) + float(number2)
         case '2':  # '2' represents subtraction
             output = float(number1) - float(number2)
         case '3':  # '3' represents multiplication
@@ -58,7 +63,7 @@ def calculate():
 
     prompt(data['result'].format(output))
 
-def again():
+def run_calculator_again():
     while True:
         prompt(data['new_calculation'])
         entry = input()
@@ -69,11 +74,10 @@ def again():
         if entry[0] and entry[0].lower() != 'y':
             break
 
-        calculate()
-
+        run_calculator()
 
 # ------- START Program -------
 
 prompt(data['welcome'])
-calculate()
-again()
+run_calculator()
+run_calculator_again()
