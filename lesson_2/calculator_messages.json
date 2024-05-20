@@ -1,10 +1,11 @@
 {
     "welcome": "Welcome to Calculator!",
-    "first_number": "What's the first number?",
-    "second_number": "What's the second number?",
-    "operation": "What operation would you like to perform?\n1) Add  2) Subtract  3) Multiply  4) Divide",
+    "get_first_number": "What's the first number?",
+    "get_second_number": "What's the second number?",
+    "get_operation": "What operation would you like to perform?\n1) Add  2) Subtract  3) Multiply  4) Divide",
     "validate_number": "Hmmm...  that doesn't look like a valid number.",
     "validate_operation": "You must choose 1, 2, 3, or 4",
     "result":"The result is: {}",
-    "new_calculation": "Perform another calculation? (y/n) "
+    "new_calculation": "Perform another calculation? (y/n) ",
+    "language_choice": "Hello!\n Please choose a language.\n1) English  2) Espanol"
 }
