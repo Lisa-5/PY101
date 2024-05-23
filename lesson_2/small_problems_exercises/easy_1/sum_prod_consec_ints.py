@@ -34,8 +34,7 @@ def get_number():
     return int(num)
 
 def get_operation():
-    oper = input('Enter "s" to compute the sum, or "p" to compute the product. ')
-
+    oper = input('Enter "s" to compute the sum, or "p" to compute the product.\n').lower()
     validate_operation(oper)
 
     return oper
