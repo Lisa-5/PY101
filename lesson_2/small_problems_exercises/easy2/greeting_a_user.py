@@ -4,6 +4,6 @@ def greeting():
     if name.endswith('!'):
        print(f"HELLO {name.upper()} WHY ARE WE YELLING?")
     else:
-       print(f'Hello {name}.')
+       print(f'Hello {name.title()}.')
 
 greeting()
