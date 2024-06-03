@@ -47,3 +47,25 @@
 
 # print('Dino' in str1)
 # print('Dino' in str2)
+ 
+# --- Question 7
+# flintstones = ["Fred", "Barney", "Wilma", "Betty", "Bambam", "Pebbles"]
+# flintstones.append("Dino")
+# print(flintstones)
+
+# --- Question 8
+# flintstones = ["Fred", "Barney", "Wilma", "Betty", "Bambam", "Pebbles"]
+# flintstones.extend(["Dino", "Hoppy"])
+# print(flintstones)
+
+# --- Question 9
+# advice = "Few things in life are as important as house training your pet dinosaur."
+# Expected output:
+# Few things in life are as important as
+# new_advice = advice.removesuffix(' house training your pet dinosaur.')
+# new_advice = advice.split('house')[0]
+# print(new_advice)
+
+# --- Question 10
+advice = "Few things in life are as important as house training your pet dinosaur."
+print(advice.replace('important', 'urgent'))
