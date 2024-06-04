@@ -35,7 +35,7 @@ def get_number(message):
     return number
 
 def get_operator():
-    prompt(data['get_operator'])
+    prompt(data['get_operation'])
     operator = input()
 
     while operator not in ['1', '2', '3', '4']:
@@ -44,37 +44,55 @@ def get_operator():
 
     return operator
 
+# def perform_calculation(operation, num1, num2):
+#     try:
+#         calculate(operation, num1, num2)
+#     except ZeroDivisionError:
+#         print("Sorry, can't diviide by zero.")
+
+
 def perform_calculation(operation, num1, num2):
     match operation:
         case '1':    # '1' represents addition
-            output = float(num1) + float(num2)
+            output = num1 + num2
         case '2':  # '2' represents subtraction
-            output = float(num1) - float(num2)
+            output = num1 - num2
         case '3':  # '3' represents multiplication
-            output = float(num1) * float(num2)
+            output = num1 * num2
         case '4':  # '4' represents division
-            output = float(num1) / float(num2)
+            output = num1 / num2
 
     return output
 
-def display_calculation_result(operation, num1, num2, result):
-    prompt(data['result'].format(output))
+def display_calculation_result(operation, num1, num2, output):
+    match operation:
+        case '1':
+            operator = '+'
+        case '2':
+            operator = '-'
+        case '3':
+            operator = '*'
+        case '4':
+            operator = '/'
+
+    prompt(data['result'].format(num1, operator, num2, output))
 
 def run_calculator():
     # get the first number
-    number1 = get_number(data['get_first_number'])
-
-    #get the second number
-    number2 = get_number(data['get_second_number'])
+    number1 = float(get_number(data['get_first_number']))
 
     # get the operator
     operator = get_operator()
 
+    #get the second number
+    number2 = float(get_number(data['get_second_number']))
+    # handle ZeroDivisionError:
+    while number2 == 0 and operator == '4':
+        number2 = float(get_number(data['zero_division']))
+ 
     # peform the calculation
     output = perform_calculation(operator, number1, number2)
-
-    # display the result to the user
-    # prompt(data['result'].format(output))
+   
     display_calculation_result(operator, number1, number2, output)
 
 def run_calculator_again():

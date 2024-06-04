@@ -4,8 +4,9 @@
     "get_second_number": "What's the second number?",
     "get_operation": "What operation would you like to perform?\n1) Add  2) Subtract  3) Multiply  4) Divide",
     "validate_number": "Hmmm...  that doesn't look like a valid number.",
+    "zero_division": "Sorry, can't divide by zero. Please enter a non zero number.",
     "validate_operation": "You must choose 1, 2, 3, or 4",
-    "result":"The result is: {}",
+    "result":"The result is: {} {} {} = {}",
     "new_calculation": "Perform another calculation? (y/n) ",
     "language_choice": "Hello!\n Please choose a language.\n1) English  2) Espanol"
 }
