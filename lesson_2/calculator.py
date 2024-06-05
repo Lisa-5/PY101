@@ -51,22 +51,7 @@ def get_operator(lang):
         prompt(messages('validate_operation',lang))
         operator = input()
 
-    return operator
-
-def perform_calculation(operation, num1, num2):
-    match operation:
-        case '1':    # '1' represents addition
-            output = num1 + num2
-        case '2':  # '2' represents subtraction
-            output = num1 - num2
-        case '3':  # '3' represents multiplication
-            output = num1 * num2
-        case '4':  # '4' represents division
-            output = num1 / num2
-    return round(output, 2)
-
-def display_calculation_result(operation, num1, num2, output, lang):
-    match operation:
+    match operator:
         case '1':
             operator = '+'
         case '2':
@@ -76,7 +61,20 @@ def display_calculation_result(operation, num1, num2, output, lang):
         case '4':
             operator = '/'
 
-    prompt(messages('result', lang).format(num1, operator, num2, output))
+    return operator
+
+def perform_calculation(operation, num1, num2):
+    match operation:
+        case '+':
+            output = num1 + num2
+        case '-':
+            output = num1 - num2
+        case '*':
+            output = num1 * num2
+        case '/':
+            output = num1 / num2
+
+    return round(output, 2)
 
 def run_calculator(lang):
     # get the first number
@@ -88,14 +86,14 @@ def run_calculator(lang):
     #get the second number
     number2 = float(get_number('get_second_number', lang))
     # handle ZeroDivisionError:
-    while number2 == 0 and operator == '4':
+    while number2 == 0 and operator == '/':
         number2 = float(get_number('zero_division', lang))
 
     # peform the calculation
     output = perform_calculation(operator, number1, number2)
 
     #display result
-    display_calculation_result(operator, number1, number2, output, lang)
+    prompt(messages('result', lang).format(number1, operator, number2, output))
 
 def run_calculator_again(lang):
     while True:
