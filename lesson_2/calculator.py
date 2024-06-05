@@ -13,6 +13,9 @@ import json
 with open('calculator_messages.json', 'r') as file:
     data = json.load(file)
 
+def messages(message, lang='en'):
+    return data[lang][message]
+
 def prompt(message):
     print(f'==> {message}')
 
@@ -39,22 +42,23 @@ def invalid_number(number_str):
         return True
     return False
 
-def get_number(message):
-    prompt(message)
+def get_number(message, lang):
+    prompt(data[lang][message])
     number = input()
 
     while invalid_number(number):
-        prompt(data['validate_number'])
+        prompt(data[lang]['validate_number'])
+        # prompt(messages('validate_number', lang))
         number = input()
 
     return number
 
-def get_operator():
-    prompt(data['get_operation'])
+def get_operator(lang):
+    prompt(data[lang]['get_operation'])
     operator = input()
 
     while operator not in ['1', '2', '3', '4']:
-        prompt(data['validate_operator'])
+        prompt(data[lang]['validate_operator'])
         operator = input()
 
     return operator
@@ -71,7 +75,7 @@ def perform_calculation(operation, num1, num2):
             output = num1 / num2
     return output
 
-def display_calculation_result(operation, num1, num2, output):
+def display_calculation_result(operation, num1, num2, output, lang):
     match operation:
         case '1':
             operator = '+'
@@ -82,29 +86,30 @@ def display_calculation_result(operation, num1, num2, output):
         case '4':
             operator = '/'
 
-    prompt(data['result'].format(num1, operator, num2, output))
+    prompt(data[lang]['result'].format(num1, operator, num2, output))
 
-def run_calculator():
+def run_calculator(lang):
     # get the first number
-    number1 = float(get_number(data['get_first_number']))
+    number1 = float(get_number('get_first_number', lang))
 
     # get the operator
-    operator = get_operator()
+    operator = get_operator(lang)
 
     #get the second number
-    number2 = float(get_number(data['get_second_number']))
+    number2 = float(get_number('get_second_number', lang))
     # handle ZeroDivisionError:
     while number2 == 0 and operator == '4':
-        number2 = float(get_number(data['zero_division']))
+        number2 = float(get_number(data[lang]['zero_division'], lang))
 
     # peform the calculation
     output = perform_calculation(operator, number1, number2)
 
-    display_calculation_result(operator, number1, number2, output)
+    #display result
+    display_calculation_result(operator, number1, number2, output, lang)
 
-def run_calculator_again():
+def run_calculator_again(lang):
     while True:
-        prompt(data['new_calculation'])
+        prompt(messages('new_calculation', lang))
         entry = input()
 
         if not entry:
@@ -113,13 +118,15 @@ def run_calculator_again():
         if entry[0] and entry[0].lower() != 'y':
             break
 
-        run_calculator()
+        run_calculator(lang)
 
 # ------- START Program -------
 
-prompt(data['en']['welcome'])
+# prompt(data['en']['welcome'])
+prompt(messages('welcome'))
 
 language = language_choice()
-print(language)
-# run_calculator()
-# run_calculator_again()
+
+# print(get_number('get_first_number', language))
+run_calculator(language)
+run_calculator_again(language)
