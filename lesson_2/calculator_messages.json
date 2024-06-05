@@ -1,12 +1,28 @@
 {
-    "welcome": "Welcome to Calculator!",
-    "get_first_number": "What's the first number?",
-    "get_second_number": "What's the second number?",
-    "get_operation": "What operation would you like to perform?\n1) Add  2) Subtract  3) Multiply  4) Divide",
-    "validate_number": "Hmmm...  that doesn't look like a valid number.",
-    "zero_division": "Sorry, can't divide by zero. Please enter a non zero number.",
-    "validate_operation": "You must choose 1, 2, 3, or 4",
-    "result":"The result is: {} {} {} = {}",
-    "new_calculation": "Perform another calculation? (y/n) ",
-    "language_choice": "Hello!\n Please choose a language.\n1) English  2) Espanol"
+    "en": {
+        "welcome": "Welcome to Calculator!",
+        "get_first_number": "What's the first number?",
+        "get_second_number": "What's the second number?",
+        "get_operation": "What operation would you like to perform?\n1) Add  2) Subtract  3) Multiply  4) Divide",
+        "validate_number": "Hmmm...  that doesn't look like a valid number.",
+        "validate_language": "Please choose either: 1) English  2) Espanol",
+        "zero_division": "Sorry, can't divide by zero. Please enter a non zero number.",
+        "validate_operation": "You must choose 1, 2, 3, or 4",
+        "result":"The result: {} {} {} = {}",
+        "new_calculation": "Perform another calculation? (y/n) ",
+        "language_choice": "Hello!\n Please choose a language.\n1) English  2) Espanol"
+    },
+    "es": {
+        "welcome": "¡Bienvenido a la Calculadora!",
+        "get_first_number": "¿Cuál es el primer número?",
+        "get_second_number": "¿Cuál es el segundo número?",
+        "get_operation": "¿Qué operación te gustaría realizar?\n1) Agregar  2) Sustraer  3) Multiplicar 4) Dividir",
+        "validate_number": "Hmmm... ese no parece un número válido.",
+        "zero_division": "Lo siento, no puedo dividir por cero. Por favor ingrese un número distinto de cero.",
+        "validate_operation": "Debes elegir 1, 2, 3, o 4",
+        "result":"El resultado: {} {} {} = {}",
+        "new_calculation": "¿Realizar otro cálculo? (sí/no) ",
+        "language_choice": "¡Hola!\nPor favor elige un idioma.\n1) Inglés 2) Espanol"
+    }
+    
 }

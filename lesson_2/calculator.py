@@ -16,12 +16,27 @@ with open('calculator_messages.json', 'r') as file:
 def prompt(message):
     print(f'==> {message}')
 
+def language_choice():
+    prompt(data['en']['language_choice'])
+    lang = input()
+
+    while lang not in ('1', '2'):
+        prompt(data['en']['validate_language'])
+        lang = input()
+
+    match lang:
+        case '1':
+            lang = 'en'
+        case '2':
+            lang = 'es'
+
+    return lang
+
 def invalid_number(number_str):
     try:
         float(number_str)
     except ValueError:
         return True
-
     return False
 
 def get_number(message):
@@ -44,13 +59,6 @@ def get_operator():
 
     return operator
 
-# def perform_calculation(operation, num1, num2):
-#     try:
-#         calculate(operation, num1, num2)
-#     except ZeroDivisionError:
-#         print("Sorry, can't diviide by zero.")
-
-
 def perform_calculation(operation, num1, num2):
     match operation:
         case '1':    # '1' represents addition
@@ -61,7 +69,6 @@ def perform_calculation(operation, num1, num2):
             output = num1 * num2
         case '4':  # '4' represents division
             output = num1 / num2
-
     return output
 
 def display_calculation_result(operation, num1, num2, output):
@@ -89,10 +96,10 @@ def run_calculator():
     # handle ZeroDivisionError:
     while number2 == 0 and operator == '4':
         number2 = float(get_number(data['zero_division']))
- 
+
     # peform the calculation
     output = perform_calculation(operator, number1, number2)
-   
+
     display_calculation_result(operator, number1, number2, output)
 
 def run_calculator_again():
@@ -110,6 +117,9 @@ def run_calculator_again():
 
 # ------- START Program -------
 
-prompt(data['welcome'])
-run_calculator()
-run_calculator_again()
+prompt(data['en']['welcome'])
+
+language = language_choice()
+print(language)
+# run_calculator()
+# run_calculator_again()
