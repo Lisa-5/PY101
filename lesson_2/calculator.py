@@ -92,7 +92,7 @@ def run_calculator(lang):
     # peform the calculation
     output = perform_calculation(operator, number1, number2)
 
-    #display result
+    #display the result
     prompt(messages('result', lang).format(number1, operator, number2, output))
 
 def run_calculator_again(lang):
@@ -110,6 +110,7 @@ def run_calculator_again(lang):
 
 # ------- START Program -------
 
+print()
 prompt(messages('welcome'))
 print()
 

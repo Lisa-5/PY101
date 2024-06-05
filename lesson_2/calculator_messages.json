@@ -16,7 +16,7 @@
         "welcome": "¡Bienvenido a la Calculadora!",
         "get_first_number": "¿Cuál es el primer número?",
         "get_second_number": "¿Cuál es el segundo número?",
-        "get_operation": "¿Qué operación te gustaría realizar?\n1) Agregar  2) Sustraer  3) Multiplicar 4) Dividir",
+        "get_operation": "¿Qué operación te gustaría realizar?\n1) Agregar  2) Sustraer  3) Multiplicar  4) Dividir",
         "validate_number": "Hmmm... ese no parece un número válido.",
         "zero_division": "Lo siento, no puedo dividir por cero. Por favor ingrese un número distinto de cero.",
         "validate_operation": "Debes elegir 1, 2, 3, o 4",
