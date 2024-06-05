@@ -10,7 +10,7 @@
         "validate_operation": "You must choose 1, 2, 3, or 4",
         "result":"The result: {} {} {} = {}",
         "new_calculation": "Perform another calculation? (y/n) ",
-        "language_choice": "Hello!\n Please choose a language.\n1) English  2) Espanol"
+        "language_choice": "Choose a language.\n1) English  2) Espanol"
     },
     "es": {
         "welcome": "¡Bienvenido a la Calculadora!",
@@ -21,8 +21,6 @@
         "zero_division": "Lo siento, no puedo dividir por cero. Por favor ingrese un número distinto de cero.",
         "validate_operation": "Debes elegir 1, 2, 3, o 4",
         "result":"El resultado: {} {} {} = {}",
-        "new_calculation": "¿Realizar otro cálculo? (sí/no) ",
-        "language_choice": "¡Hola!\nPor favor elige un idioma.\n1) Inglés 2) Espanol"
-    }
-    
+        "new_calculation": "¿Realizar otro cálculo? (sí/no) "
+    }   
 }

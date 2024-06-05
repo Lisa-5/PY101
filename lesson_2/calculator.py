@@ -1,14 +1,5 @@
 import json
 
-# Ask the user for the first number.
-# Ask the user for the second number.
-# Ask the user for an operation to perform.
-# Perform the operation on the two numbers.
-# Print the result to the terminal.
-# Ask the user if they want do another calculation
-# If 'y' repeat calculator program
-# When 'n' exit the program
-
 # Open the JSON file for reading
 with open('calculator_messages.json', 'r') as file:
     data = json.load(file)
@@ -23,7 +14,7 @@ def language_choice():
     prompt(messages('language_choice'))
     lang = input()
 
-    while lang not in ('1', '2', ''):
+    while lang not in ('1', '2'):
         prompt(messages('validate_language'))
         lang = input()
 
@@ -85,7 +76,7 @@ def display_calculation_result(operation, num1, num2, output, lang):
         case '4':
             operator = '/'
 
-    prompt(data[lang]['result'].format(num1, operator, num2, output))
+    prompt(messages('result', lang).format(num1, operator, num2, output))
 
 def run_calculator(lang):
     # get the first number
@@ -124,6 +115,9 @@ def run_calculator_again(lang):
 prompt(messages('welcome'))
 
 language = language_choice()
+
+if language != 'en':
+    prompt(messages('welcome', language))
 
 run_calculator(language)
 run_calculator_again(language)
