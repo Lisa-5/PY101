@@ -72,7 +72,7 @@ def perform_calculation(operation, num1, num2):
             output = num1 * num2
         case '4':  # '4' represents division
             output = num1 / num2
-    return output
+    return round(output, 2)
 
 def display_calculation_result(operation, num1, num2, output, lang):
     match operation:
