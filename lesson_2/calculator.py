@@ -111,11 +111,14 @@ def run_calculator_again(lang):
 # ------- START Program -------
 
 prompt(messages('welcome'))
+print()
 
 language = language_choice()
 
 if language != 'en':
+    print()
     prompt(messages('welcome', language))
 
+print()
 run_calculator(language)
 run_calculator_again(language)
