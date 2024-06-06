@@ -19,7 +19,7 @@ def language_choice():
         lang = input()
 
     match lang:
-        case ('1' | ''):
+        case '1':
             lang = 'en'
         case '2':
             lang = 'es'
