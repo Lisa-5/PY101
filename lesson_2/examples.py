@@ -132,30 +132,30 @@
 # else:
 #     print('Not Two')
 
-num = 12
+# num = 12
 
-if num / 3 > 3 and num < 10:
-                    #False
-    print('1 Hello')
-else: print('1 False')
+# if num / 3 > 3 and num < 10:
+#                     #False
+#     print('1 Hello')
+# else: print('1 False')
 
-if num < 4 or num > 8 and num < 10 or num > 16:
-    #False or True
-              #  True and num < 10
-              #              False or num > 16
-              #                           False
-    print('2 Hello')
-else: print('2 False')
+# if num < 4 or num > 8 and num < 10 or num > 16:
+#     #False or True
+#               #  True and num < 10
+#               #              False or num > 16
+#               #                           False
+#     print('2 Hello')
+# else: print('2 False')
 
-if num % 4 == 0 or num < 7 and num < 10:
-    # True or False
-            # True
-    print('3 Hello')
-else: print('3 False')
+# if num % 4 == 0 or num < 7 and num < 10:
+#     # True or False
+#             # True
+#     print('3 Hello')
+# else: print('3 False')
 
-if num >= 8 and num < 6 or num > 4 and num < 16:
-    print('4 Hello')
-else: print('4 False')
+# if num >= 8 and num < 6 or num > 4 and num < 16:
+#     print('4 Hello')
+# else: print('4 False')
 
 # def extend_greeting(greeting):
 #     return greeting + " there"
@@ -203,3 +203,18 @@ else: print('4 False')
 #     return name
 
 # print(name_func())
+
+# non_numeric_str = "abc"
+# try:
+#     non_numeric_integer = int(non_numeric_str)
+# except ValueError:
+#     print("Cannot convert to int")
+
+# flt = 42.99
+# print(int(flt))
+# print(type(int(flt)))
+
+nan_string = "NaN"
+nan_float = float(nan_string)
+
+print(nan_float)  # Output: nan
