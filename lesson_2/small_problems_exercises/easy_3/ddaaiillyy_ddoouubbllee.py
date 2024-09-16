@@ -13,7 +13,7 @@ def crunch(text):
 
     for char in text:
         if char == str_list[-1]:
-            pass
+            continue
         else:
             str_list.append(char)
 
